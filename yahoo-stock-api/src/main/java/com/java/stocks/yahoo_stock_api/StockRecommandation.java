@@ -2,22 +2,18 @@ package com.java.stocks.yahoo_stock_api;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
+
+import com.authentication.Authentication;
+import com.pojo.User;
 
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
-import yahoofinance.histquotes.HistoricalQuote;
-import yahoofinance.histquotes.Interval;
 
 public class StockRecommandation {
 
