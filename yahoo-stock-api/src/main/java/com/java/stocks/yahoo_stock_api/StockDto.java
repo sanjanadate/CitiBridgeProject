@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.connection.DBConnection;
+
 public class StockDto {
 	   public List getStocksForMarketCap(int Start_Amt, int Final_Amt) {
 		String SELECT_STOCK_FOR_MARKETCAP_QUERY = "SELECT * FROM  Nifty50  WHERE MARKETCAP BETWEEN ? AND ?";
