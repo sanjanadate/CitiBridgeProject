@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.dao.AuthenticationDAO;
+import com.dao.StockDto;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pojo.DisplayStock;
 import com.pojo.User;
@@ -33,6 +34,8 @@ public class MyController {
 	@Autowired
 	StockRecommandation stockDAO;
 	
+	@Autowired
+	StockDto stock_dao;
 	//@Autowired
 	//DisplayStock displayStockDAO;
 	
@@ -81,4 +84,9 @@ public class MyController {
 		return Arrays.asList(new DisplayStock("Stock 1", 0, 0),new DisplayStock("Stock 2", 0, 0), new DisplayStock("Stock 3", 0, 0));
 	}
 	
+	//get saved stocks
+	@RequestMapping(value = "/fetch-stocks/{user_id}", method = RequestMethod.GET)
+	public List<DisplayStock> getSavedStocks(@PathVariable int user_id) {
+		return stock_dao.getSavedStocks(user_id);
+	}
 }

@@ -16,10 +16,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.connections.DBConnection;
+import com.pojo.DisplayStock;
 import com.pojo.User;
 
-
+@Repository(value = "dao2")
 public class StockDto {
+
 	
 	@Autowired
 	JdbcTemplate template;
@@ -66,10 +68,11 @@ public class StockDto {
 		return stockList;
 	}
 
-	public JSONObject getSavedStocks(int userId) {
+	public List<DisplayStock> getSavedStocks(int userId) {
 		JSONArray stockList = new JSONArray();
 		JSONObject stockData = null;
 		JSONObject stockListObject = new JSONObject();
+		List<DisplayStock> stock_list = new ArrayList<>();
 		try {
 			Connection con = DBConnection.CreateConnection();
 			PreparedStatement pst = con.prepareStatement("SELECT * FROM  user_saved_stock where user_id = ? ");
@@ -78,7 +81,7 @@ public class StockDto {
 
 			if (null != rs) {
 				while (rs.next()) {
-					String stockSymbol = rs.getString("Symbol");
+					/*String stockSymbol = rs.getString("Symbol");
 					//LOGGER.info("stocksymbol:" + stockSymbol);
 					String stockPrice = rs.getString("stockprice");
 					//LOGGER.info("stockprice:" + stockPrice);
@@ -90,7 +93,8 @@ public class StockDto {
 					stockData.put("stockprice", stockPrice);
 					stockData.put("stockquantity", stockQuantity);
 					stockList.add(stockData);
-					stockListObject.put("Stocks", stockList);
+					stockListObject.put("Stocks", stockList);*/
+					stock_list.add(new DisplayStock(rs.getString(2), rs.getDouble(3), rs.getInt(4)));
 				}
 			}
 			//LOGGER.info("stockListObject in the DAO:" + stockListObject);
@@ -107,7 +111,8 @@ public class StockDto {
 			System.out.println("==================================================================");
 			System.out.println();
 		}
-		return stockListObject;
+		//return stockListObject;
+		return stock_list;
 	}
 
 	public boolean saveStock(int user_id,JSONArray selectedStockArray,int quantity)
