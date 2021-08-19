@@ -60,6 +60,6 @@ public class User {
 	public String toString() {
 		return "User [userID=" + userID + ", username=" + username + ", password=" + password + "]";
 	}
-	
+
 	
 }

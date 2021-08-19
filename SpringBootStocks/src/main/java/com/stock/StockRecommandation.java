@@ -35,7 +35,7 @@ public class StockRecommandation {
 		return Stock_map;        
 	}
 
-	public List<DisplayStock> getAPIData() throws IOException, InterruptedException, ParseException {
+	public List<DisplayStock> getAPIData(int start_amt, int final_Amt) throws IOException, InterruptedException, ParseException {
 		
 		List<DisplayStock> stock_list = new ArrayList<>();
 		
@@ -45,9 +45,9 @@ public class StockRecommandation {
 		
 		
 		com.dao.StockDto stockDAO = new com.dao.StockDto();
-		int start_amt=200000;
-		int final_Amt=400000;
-		List stocksForSelectedCAP = stockDAO.getStocksForMarketCap(start_amt,final_Amt);
+		//int start_amt=200000;
+		//int final_Amt=400000;
+		List<String> stocksForSelectedCAP = stockDAO.getStocksForMarketCap(start_amt,final_Amt);
 		
 		
 		String stockQueryStr = "";
@@ -83,10 +83,10 @@ public class StockRecommandation {
         	double percChangeInPrice= (double) values[i].get("fiftyDayAverageChangePercent");
         	tickerQuoteListMap.put(percChangeInPrice, list.get(i));
         }
-        TreeMap<Double, List> Stock_map=Get_Top_Stocks(tickerQuoteListMap);
-        int no_of_stocks=5;
-		for (Entry<Double, List> entry : Stock_map.entrySet()) {
-			if(no_of_stocks!=0) {
+        TreeMap<Double, List<JSONObject>> Stock_map=Get_Top_Stocks(tickerQuoteListMap);
+        int no_of_stocks=0;
+		for (Entry<Double, List<JSONObject>> entry : Stock_map.entrySet()) {
+			if(no_of_stocks<=5) {
 				values[no_of_stocks]=(JSONObject) entry.getValue();
 				stock_list.add(new DisplayStock(values[no_of_stocks].get("symbol").toString(),
 						Double.parseDouble(values[no_of_stocks].get("regularMarketPrice").toString()),
@@ -97,7 +97,7 @@ public class StockRecommandation {
 				System.out.println();
 				System.out.println("==================================================================");
 				System.out.println();
-				no_of_stocks--;
+				no_of_stocks++;
 			}
 			else {
 				break;
