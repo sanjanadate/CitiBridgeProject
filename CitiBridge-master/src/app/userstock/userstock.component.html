@@ -1,0 +1,23 @@
+<h1>MARKET CAP BASED TRADE RECOMMENDATION SYSTEM</h1>
+<img id="img1" src="assets/images/table.png" alt="HomePage">
+<br>
+<h4 id="welcome">View Saved Stocks</h4>
+<br>
+<table border="0" align="center">
+    <thead></thead>
+    <tr>     
+      <th id="thead1">STOCK SYMBOL</th>
+      <th>PRICE IN RS.</th>
+      <th id="thead2">QUANTITY</th>
+      </tr>
+    
+    <tbody>
+        <tr *ngFor="let user of employees">
+           
+            <td>{{user.stock_Symbol}}</td>
+            <td>{{user.stockPrice}}</td>
+            <td>{{user.perc_ChangeIn_Price}}</td>
+            </tr>
+    </tbody>
+      </table>
+      <br><br>

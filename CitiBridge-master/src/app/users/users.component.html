@@ -1,0 +1,45 @@
+<h1>MARKET CAP BASED TRADE RECOMMENDATION SYSTEM</h1>
+<img id="img1" src="assets/images/saved.png" alt="HomePage">
+<br>
+<h4 id="welcome">Welcome!</h4>
+<h4>Choose the amount:</h4> 
+<button id = "button1" class="stockbtn" (click)="random1(45000,100000)">Rs. 45,000 to Rs. 1 lac</button>
+<button id="button2" class="stockbtn" (click)="random1(100000,300000)">Rs. 1 lac to Rs. 3 lacs</button>
+<button id="button3" class="stockbtn" (click)="random1(300000,600000)">Rs. 3 lacs to Rs. 6 lacs</button>
+<button id="button4" class="stockbtn" (click)="random1(600000,1500000)">Rs. 6 lacs to Rs. 15 lacs</button>
+<br><br><br>
+
+
+
+<table border="0">
+    <thead>
+      <tr id="row1">
+        <th id= "thead1">STOCK SYMBOL</th>
+        <th>STOCK PRICE IN RS.</th>
+        <th>% CHANGE IN PRICE</th>
+        <th id="thead2">QUANTITY</th>
+        <th id="emptythead"></th>
+        </tr>
+
+    </thead>
+    
+    
+    <tbody>
+        <tr *ngFor="let user of marketcaps">
+            <td>{{user.stock_Symbol}}</td>
+            <td>{{user.stockPrice}}</td>
+            <td>{{user.perc_ChangeIn_Price}}</td>
+           <td>
+            <input class="tableinput" #stockQuantity type="number" name="quantity" id="stockQuantity" >
+            </td>
+            <td style="background-color: #fff; border-width: 0px;">
+              <button class="stockbtn"(click)="saveStock(user.stock_Symbol,user.stockPrice,user.perc_ChangeIn_Price, stockQuantity.value)">Save</button> 
+
+            </td>
+            </tr>
+    </tbody>
+      </table>
+      <br><br>
+      <button id="viewbtn"class="stockbtn" btn (click)="random2()">VIEW STOCKS</button>
+
+  

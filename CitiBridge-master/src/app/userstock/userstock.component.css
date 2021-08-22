@@ -1,0 +1,77 @@
+#img1{
+    top: 116px;
+    left: 44px;
+    width: 80px;
+    height: 100x;
+    opacity: 1;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#welcome {
+    top: 139px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-left: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+}
+h1 {
+    background-color: #0096f9;
+    color: #FFF;
+    padding: 10px 0 ;
+    display: block;
+    font-size: 2em;
+    font-family: "Playfair Display", serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 32px;
+    margin-top: 0%;
+    text-align: center;
+  }
+
+  h4{
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: normal;
+      padding-left: 10px;
+  }
+  table {
+    background-color: #fff;
+    border-color: #fff;
+    border-width: 1px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    border-radius: 10px;
+    
+    
+}
+th {
+    background-color: #0096F9;
+    color: #fff;
+    padding: 10px 30px;
+    font-weight:500;
+    border-width: 0px;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+}
+#thead1 {
+  border-top-left-radius: 10px;
+}
+
+#thead2 {
+border-top-right-radius: 10px;
+}
+td{
+  border-color: #fff;
+  border-width: 1px;
+  background-color: #f1f1f1;
+  padding: 10px 30px;
+}
