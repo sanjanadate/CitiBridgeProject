@@ -112,6 +112,8 @@ resp.subscribe(data => {
   console.log(data);
   //this.saved = data;
   //console.log(this.saved);
+  alert(data);
+
 }
 );
 console.log(LoginComponent.user_id);
