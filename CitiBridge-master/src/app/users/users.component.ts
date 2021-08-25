@@ -125,13 +125,7 @@ random2(){
   this.router.navigate(["userstock"]);
 }
 
-
-
-
-
-
-
-
-
-
+back(){
+  this.router.navigate(["login"]);
+}
 }
