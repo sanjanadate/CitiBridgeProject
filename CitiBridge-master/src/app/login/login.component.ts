@@ -94,19 +94,6 @@ export class LoginComponent implements OnInit {
     return this.id;
 
   }
-  
- 
 
-  /*loginProcess()
-  {
-    if(this.formGroup.valid)
-    {
-      this.httpClientService.login(this.formGroup.value)
-    }
-  }
-
-  onSubmit(loginForm:NgForm){
-    console.log(loginForm)
-  }*/
 
 }
