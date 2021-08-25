@@ -42,6 +42,32 @@ h1 {
       font-weight: normal;
       padding-left: 10px;
   }
+
+  #backbtn {
+    background: #0096F9 0% 0% no-repeat padding-box;
+    border-color: #f1f1f1;
+    border-width: 0px;
+    border-radius: 10px;
+    opacity: 1;
+    color: #FFF;
+    padding: 7px 20px;
+    margin-top: 90px;
+    margin-right: 20px;
+    top: 0;
+    right: 0;
+    position:absolute;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+}
+#backbtn:hover {background-color: #046fb6}
+#backbtn:active {
+    background-color: #014e81;
+    transform: translateY(4px);
+  }
   table {
     background-color: #fff;
     border-color: #fff;

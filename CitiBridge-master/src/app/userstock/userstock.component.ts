@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../http-client.service';
 import { MarketCapService } from '../users/marketCap.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-userstock',
@@ -9,7 +10,7 @@ import { MarketCapService } from '../users/marketCap.model';
 })
 export class UserstockComponent implements OnInit {
  employees:MarketCapService[];
-  constructor(private httpClientService:HttpClientService) { }
+  constructor(private httpClientService:HttpClientService,private router:Router) { }
 
   ngOnInit() {
     this.httpClientService.getEmployees().subscribe(
@@ -23,4 +24,7 @@ export class UserstockComponent implements OnInit {
     this.employees=resp;
 }
 
+back(){
+  this.router.navigate(["users"]);
+}
 }
