@@ -28,7 +28,7 @@ public static quantity:number;
     private httpClientService:HttpClientService,
     private login :LoginComponent,
     private router:Router
-  ) { }
+  ) {   }
 
   ngOnChanges() {
     this.userID=this.id;
@@ -48,10 +48,6 @@ public static quantity:number;
     }
    
 
-    /*let resp = this.httpClientService.saveSelectedStock(this.saveStock);
-resp.subscribe(data => {
-  this.saved = data;
-});*/
     
   random1(start:number,end: number)
   {
@@ -75,24 +71,10 @@ rabdom3()
 
 }
 
-/*lgbtnclick(stock_Symbol:string,stockPrice:number,perc_ChangeIn_Price:number) {
-  //this.msgTrue=true;
-  //alert(UsersComponent.quantity);
-  this.stockQuantity = this.rabdom3();
-  console.log(this.stockQuantity);
-  this.saveStock(stock_Symbol,stockPrice,perc_ChangeIn_Price,this.stockQuantity);
-}*/
 
 saveStock(stock_Symbol:string,stockPrice:number,perc_ChangeIn_Price:number,stock_quantity:number)
 {
-  //const user_id=this.login.formGroup.controls['user_id'].value
-  //const user_id=this.login.formGroup.getRawValue()['user_id'];
-  //const user_id=this.login.id;
-  //const user_id=LoginComponent.user_id;
 
-  // const user_id =this.login.formGroup.get("user_id").value;
- //this.msgTrue=true;
- //var stockQuantity:number;
   if(this.formGroup.valid)
   {
     UsersComponent.quantity=this.formGroup.value.quantity;
@@ -106,16 +88,20 @@ saveStock(stock_Symbol:string,stockPrice:number,perc_ChangeIn_Price:number,stock
 }
 
   console.log(saveStock);
-   //var person = prompt("Please enter your name: ", "Username");
-   let resp = this.httpClientService.saveSelectedStock(saveStock);
-resp.subscribe(data => {
-  console.log(data);
-  //this.saved = data;
-  //console.log(this.saved);
-  alert(data);
+   if(stock_quantity > 0) {
+    let resp = this.httpClientService.saveSelectedStock(saveStock);
+    resp.subscribe(data => {
+      console.log(data);
+    
+      alert(data);
+    
+    }
+    );
+   }
+   else {
+     alert('Please enter a valid quantity')
+   }
 
-}
-);
 console.log(LoginComponent.user_id);
 
 
@@ -128,4 +114,5 @@ random2(){
 back(){
   this.router.navigate(["login"]);
 }
+
 }
