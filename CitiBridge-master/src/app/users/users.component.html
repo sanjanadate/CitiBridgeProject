@@ -30,7 +30,7 @@
             <td>{{user.stockPrice}}</td>
             <td>{{user.perc_ChangeIn_Price}}</td>
            <td>
-            <input class="tableinput" #stockQuantity type="number" name="quantity" id="stockQuantity" >
+            <input class="tableinput" #stockQuantity type="number" name="quantity" id="stockQuantity"  min="0" >
             </td>
             <td style="background-color: #fff; border-width: 0px;">
               <button class="stockbtn"(click)="saveStock(user.stock_Symbol,user.stockPrice,user.perc_ChangeIn_Price, stockQuantity.value)">Save</button> 
